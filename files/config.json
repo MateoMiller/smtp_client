@@ -1,0 +1,5 @@
+{
+  "attachments": ["cat.jpg", "dog.png", "doc.pdf"],
+  "subject": "Тестирование клиента",
+  "receivers": ["MateoMiller123@yandex.ru", "mateomillertest@mail.ru", "yura85515@gmail.com"]
+}

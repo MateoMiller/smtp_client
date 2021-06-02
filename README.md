@@ -1,5 +1,5 @@
 Видео с демонстрацией работы:
-https://youtu.be/0mBRzvZKGCo
+https://youtu.be/RQJXNRdUV6M
 
 SMTP CLIENT
 Выполнил 

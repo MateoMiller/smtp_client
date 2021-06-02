@@ -1,5 +1,5 @@
 {
-  "attachments": ["cat.jpg", "dog.png", "doc.pdf"],
-  "subject": "Тестирование клиента",
+  "attachments": ["cat_кошка.jpg", "dog_собака.png", "doc_документ.pdf"],
+  "subject": "Тестирование клиента SMTP",
   "receivers": ["MateoMiller123@yandex.ru", "mateomillertest@mail.ru", "yura85515@gmail.com"]
 }

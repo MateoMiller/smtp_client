@@ -40,17 +40,30 @@ def create_message(config):
         message += f'--{boundary}--\n.'
         return message
     elif text:
-        return message + f'\n{text}\n.'
+        return message + f'\n{fix_problems_with_points(text)}\n.'
     else:
-        return message + '.'
+        return message + '\n.'
 
 
 def add_plain_text(message, text, boundary):
     message += f'--{boundary}\n'
     message += f'Content-Transfer-Encoding: 8bit\n'
     message += f'Content-Type: text/plain\n'
-    message += f'\n{text}\n'
+    message += f'\n{fix_problems_with_points(text)}\n'
     return message
+
+
+def fix_problems_with_points(string: str):
+    lines = string.splitlines()
+    res = ''
+    for line in lines:
+        if line == '':
+            res += '\n'
+        elif line[0] == '.':
+            res += '.' + line + '\n'
+        else:
+            res += line + '\n'
+    return res
 
 
 def get_file_mime_type(name):
@@ -74,7 +87,7 @@ def add_attachment(message, file_name, boundary):
                     f'Content-Transfer-Encoding: base64\n' +
                     f'Content-Type: {mime_type}; \n\tname="{file_name}"\n\n')
         with open(os.path.join('files', file_name), 'rb') as file:
-            message += base64.b64encode(file.read()).decode()
+            message += fix_problems_with_points(base64.b64encode(file.read()).decode())
         message += '\n'
         return message
     except Exception:
